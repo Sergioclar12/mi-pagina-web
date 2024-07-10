@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body style="background-image: url('https://img.freepik.com/foto-gratis/habitacion-podio-producto-vacio-interior-3d_1409-5750.jpg?w=740&t=st=1720559098~exp=1720559698~hmac=1e310e03a33d8b42967ca181203be84b21471c1d14ad794c1d4b286d23bd112b');">
+    <div class="container">
+        <h2>Iniciar Sesión</h2>
+        <form id="loginForm">
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Iniciar sesión</button>
+        </form>
+        <p>¿Nuevo usuario? <a href="registro.html">Registrarse</a></p>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Obtener los datos almacenados en el almacenamiento local
+            const storedEmail = localStorage.getItem('email');
+            const storedPassword = localStorage.getItem('password');
+
+            // Simulación de autenticación
+            if (email === storedEmail && password === storedPassword) {
+                alert('Inicio de sesión exitoso.');
+                // Redirigir al usuario a la página de bienvenida (simulado)
+                window.location.href = 'bienvenida.html';
+            } else {
+                alert('Correo electrónico o contraseña incorrectos. Por favor, inténtelo de nuevo.');
+            }
+        });
+    </script>
+</body>
+</html>
